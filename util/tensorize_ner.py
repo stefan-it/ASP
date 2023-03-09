@@ -35,14 +35,13 @@ class NERDataProcessor(object):
             # Generate tensorized samples
             self.tensor_samples = {}
             tensorizer = Tensorizer(self.config)
-            suffix = f'{self.config["plm_tokenizer_name"]}.jsonlines'
+            suffix = 'jsonlines'
 
-            if self.dataset == "conll03_ner":
-                paths = {
-                    'train': join(self.data_dir, f'train.{suffix}'),
-                    'dev': join(self.data_dir, f'dev.{suffix}'),
-                    'test': join(self.data_dir, f'test.{suffix}')
-                }
+            paths = {
+                'train': join(self.data_dir, f'train.{suffix}'),
+                'dev': join(self.data_dir, f'dev.{suffix}'),
+                'test': join(self.data_dir, f'test.{suffix}')
+            }
 
             for split, path in paths.items():
                 logger.info(
@@ -73,7 +72,7 @@ class NERDataProcessor(object):
 
     def get_cache_path(self):
         cache_path = join(
-            self.data_dir, f'cached.tensors.{self.config["plm_tokenizer_name"]}.bin'
+            self.data_dir, f'cached.tensors.bin'
         )
         return cache_path
 
