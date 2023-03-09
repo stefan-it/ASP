@@ -54,6 +54,8 @@ conda env create -f environment.yml    # create a new environment (asp)
     <summary> Install <code>apex</code> from source </summary>
 
   ```bash
+  sudo apt update
+  sudo apt install python3-pybind11
   git clone https://github.com/NVIDIA/apex
   cd apex
   pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
@@ -69,13 +71,13 @@ conda env create -f environment.yml    # create a new environment (asp)
 <details>
     <summary> <code> named entity recognition </code> </summary>
     
-### CoNLL-03
+### HIPE-2022 AjMC (English)
 ```bash
-  wget https://polybox.ethz.ch/index.php/s/bFf8vJBonIT7sr8/download -O ./data/conll03_ner.zip
-  unzip ./data/conll03_ner.zip -d ./data
-  rm ./data/conll03_ner.zip
-  python ./data/conll03_ner/conll03_to_json.py
-  python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
+  pip install flair
+  python data/conll03_ner/hipe2022_to_json.py
+  python3 data/t5minimize_hipe2022.py $HOME/.flair/datasets/ner_hipe_2022/v2.1/ajmc/en/with_doc_seperator \
+  $HOME/.flair/datasets/ner_hipe_2022/v2.1/ajmc/en/with_doc_seperator \
+  bigscience-historical-texts/t5-efficient-blbooks-large-nl36
 ```
 
 ### OntoNotes V5
