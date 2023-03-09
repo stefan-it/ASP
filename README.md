@@ -73,8 +73,8 @@ conda env create -f environment.yml    # create a new environment (asp)
     
 ### HIPE-2022 AjMC (English)
 ```bash
-  pip install flair
-  python data/conll03_ner/hipe2022_to_json.py
+  pip install flair pyhocon
+  python data/hipe2022_ner/hipe2022_to_json.py
   python3 data/t5minimize_hipe2022.py $HOME/.flair/datasets/ner_hipe_2022/v2.1/ajmc/en/with_doc_seperator \
   $HOME/.flair/datasets/ner_hipe_2022/v2.1/ajmc/en/with_doc_seperator \
   bigscience-historical-texts/t5-efficient-blbooks-large-nl36
