@@ -28,7 +28,7 @@ class NERModel(torch.nn.Module):
                 int(k):v for k, v in config['device_map'].items()
             }
 
-        self.tz = T5Tokenizer.from_pretrained("t5-small")
+        self.tz = T5Tokenizer.from_pretrained(config['plm_tokenizer_name'])
         self.MENTION_START = '<m>'
         self.MENTION_END   = '</m>'
         self.tz.add_tokens(self.MENTION_START)
